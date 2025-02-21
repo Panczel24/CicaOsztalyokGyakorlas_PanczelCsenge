@@ -51,13 +51,6 @@ namespace OsztalyokGyakorlas
 		public string Nem { get => nem; set => nem = value; }
 
 
-        public int HanyEves()
-        {
-            Console.WriteLine("hány éves a cicád?: ");
-			int ennyiEves = Convert.ToInt16(Console.ReadLine());
-			return ennyiEves;
-        }
-
         public void Eves(double kajaSuly) //evés
 		{
 			
@@ -102,17 +95,51 @@ namespace OsztalyokGyakorlas
 
 		public void Jatek()
 		{
+            Console.WriteLine("hány éves a cicád?: ");
+            int ennyiEves = Convert.ToInt16(Console.ReadLine());
 
-			
-			string valasz = "";
+			int rendetlenseg = 0;
+            
+			if (ennyiEves <= 2)
+			{
+				rendetlenseg = random.Next(50, 100);
+			}
+            else if (ennyiEves >= 3 && ennyiEves <= 6)
+            {
+                rendetlenseg = random.Next(20, 90);
+            }
+			else if (ennyiEves >= 7 && ennyiEves <= 10)
+			{
+                rendetlenseg = random.Next(10, 60);
+            }
+			else
+			{
+                rendetlenseg = random.Next(1, 30);
+            }
+
+
+            string valasz = "";
 			string valasz1 = "";
 
-			if (HanyEves() < 2)
+			if (ennyiEves <= 2)
 			{
-				int szint = random.Next(90, 101);
-				if (szint == 0) Alvas();
+				if (rendetlenseg == 0)
+				{
+					Alvas();
+				}
 
-				else if (szint >= 91 && szint <= 100)
+                else if (rendetlenseg >= 50 && rendetlenseg <= 70)
+                {
+                    valasz = jatekok[random.Next(5)];
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+                }
+                else if (rendetlenseg >= 71 && rendetlenseg <= 90)
+                {
+                    valasz = jatekok[random.Next(5)];
+                    valasz1 = jatekok[random.Next(8)];
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1} és ekkora a rendetlenségszintje: {rendetlenseg}");
+                }
+                else if (rendetlenseg >= 91 && rendetlenseg <= 100)
 				{
 					valasz = jatekok[random.Next(8)];
 					valasz1 = jatekok[random.Next(8)];
@@ -120,7 +147,7 @@ namespace OsztalyokGyakorlas
 					{
 						valasz1 = jatekok[random.Next(8)];
 					}
-					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {szint}");
+					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {rendetlenseg}");
 					if (valasz == "romlott étel fogyasztása" || valasz1 == "romlott étel fogyasztása")
 					{
 						Eves(2);
@@ -128,12 +155,15 @@ namespace OsztalyokGyakorlas
 				}
 			}
 
-			if (HanyEves() >= 3 && HanyEves() <= 6)
+			if (ennyiEves >= 3 && ennyiEves <= 6)
 			{
-                int szint = random.Next(60, 91);
-                if (szint == 0) Alvas();
-
-				else if (szint >= 61 && szint <= 90)
+                if (rendetlenseg == 0) Alvas();
+                else if (rendetlenseg >= 20 && rendetlenseg <= 60)
+                {
+                    valasz = jatekok[random.Next(5)];
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+                }
+                else if (rendetlenseg >= 61 && rendetlenseg <= 90)
 				{
 					valasz = jatekok[random.Next(6)];
 					valasz1 = jatekok[random.Next(3)];
@@ -141,33 +171,34 @@ namespace OsztalyokGyakorlas
 					{
 						valasz1 = jatekok[random.Next(3)];
 					}
-					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica:{valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {szint}");
+					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica:{valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {rendetlenseg}");
 				}
 			}
 
-			if (HanyEves() >= 7 && HanyEves() <= 10)
+			if (ennyiEves >= 7 && ennyiEves <= 10)
 			{
-                int szint = random.Next(30, 61);
-                if (szint == 0) Alvas();
-                else if (szint >= 31 && szint <= 60)
+                if (rendetlenseg == 0) Alvas();
+                else if (rendetlenseg >= 10 && rendetlenseg <= 30)
+                {
+                    valasz= jatekok[random.Next(3)] ;
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg} ");
+                }
+                else if (rendetlenseg >= 31 && rendetlenseg <= 60)
                 {
                     valasz = jatekok[random.Next(5)];
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {szint}");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
                 }
             }
 
-            if (HanyEves() >= 11 && HanyEves() <= 20)
+            if (ennyiEves >= 11 )
             {
-                int szint = random.Next(0, 30);
-                if (szint == 0) Alvas();
-                else if (szint >= 1 && szint <= 30)
-                {
-                    jatekok[random.Next(3)] = valasz;
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {szint} ");
-                }
+                if (rendetlenseg == 0) Alvas();
+
+                valasz = jatekok[random.Next(3)];
+                Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg} ");
             }
 
-
+			//Végre rájöttem hogy akartam :')
 			
 		}
 
