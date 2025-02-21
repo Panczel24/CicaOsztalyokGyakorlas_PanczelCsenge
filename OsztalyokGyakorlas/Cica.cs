@@ -68,9 +68,10 @@ namespace OsztalyokGyakorlas
 			else
 			{
 				suly += (int)Math.Ceiling(fogyasztas * kajaSuly); //minden double int, de nem minden int double
-                Console.WriteLine("szerencsére semmi baja nem lett");
+                //Console.WriteLine("szerencsére semmi baja nem lett");
 			};
-            Console.WriteLine($"evés után a cicának ekkora súlya lett: {suly}, és a rendetlenségszintje: {rendetlensegSzint},  ilyen a színe: {szin}");
+            Console.WriteLine($"evés után a cicának ekkora súlya lett: {suly}, és a rendetlenségszintje: {rendetlensegSzint}, de ha idősebb a cicád ez hamar visszaugrik mert ezt a boostot csak az evés adta, " +
+				$" ilyen a színe: {szin}");
         }
 
 		public void Alvas()
@@ -81,7 +82,7 @@ namespace OsztalyokGyakorlas
 			{
 				szin = "eredeti";
 			}
-            Console.WriteLine($"alvás közben a rednetlensége: {rendetlensegSzint}, valamint kialudta a radioaktiv betegségét es a szine az {szin} lett");
+            Console.WriteLine($"alvás közben a rednetlensége: {rendetlensegSzint}, valamint ha volt, kialudta a radioaktiv betegségét es a szine az {szin} lett");
 
 
         }
@@ -90,7 +91,7 @@ namespace OsztalyokGyakorlas
 		{
 			rendetlensegSzint = 100;
 			ehes = true;
-            Console.WriteLine($"a cicának ekkora éberés után a rendetlenségszintja: {rendetlensegSzint}, éhes e ilyenkor a cica? {ehes}");
+            Console.WriteLine($"a cicának ekkora éberés után a rendetlenségszintja: {rendetlensegSzint}, de ha idősebb a cicád ez hamar visszaugrik, mert ezt a boostot csak az alvás adta, éhes e ilyenkor a cica? {ehes}");
         }
 
 		public void Jatek()
@@ -131,13 +132,13 @@ namespace OsztalyokGyakorlas
                 else if (rendetlenseg >= 50 && rendetlenseg <= 70)
                 {
                     valasz = jatekok[random.Next(5)];
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és most ekkora a rendetlenségszintje: {rendetlenseg}");
                 }
                 else if (rendetlenseg >= 71 && rendetlenseg <= 90)
                 {
                     valasz = jatekok[random.Next(5)];
                     valasz1 = jatekok[random.Next(8)];
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1} és ekkora a rendetlenségszintje: {rendetlenseg}");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1} és most ekkora a rendetlenségszintje: {rendetlenseg}");
                 }
                 else if (rendetlenseg >= 91 && rendetlenseg <= 100)
 				{
@@ -147,7 +148,7 @@ namespace OsztalyokGyakorlas
 					{
 						valasz1 = jatekok[random.Next(8)];
 					}
-					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz} valamint {valasz1}, és most ekkora a rendetlenségszintje: {rendetlenseg}");
 					if (valasz == "romlott étel fogyasztása" || valasz1 == "romlott étel fogyasztása")
 					{
 						Eves(2);
@@ -161,7 +162,7 @@ namespace OsztalyokGyakorlas
                 else if (rendetlenseg >= 20 && rendetlenseg <= 60)
                 {
                     valasz = jatekok[random.Next(5)];
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és most ekkora a rendetlenségszintje: {rendetlenseg}");
                 }
                 else if (rendetlenseg >= 61 && rendetlenseg <= 90)
 				{
@@ -171,7 +172,7 @@ namespace OsztalyokGyakorlas
 					{
 						valasz1 = jatekok[random.Next(3)];
 					}
-					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica:{valasz} valamint {valasz1}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+					Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica:{valasz} valamint {valasz1}, és most ekkora a rendetlenségszintje: {rendetlenseg}");
 				}
 			}
 
@@ -181,12 +182,12 @@ namespace OsztalyokGyakorlas
                 else if (rendetlenseg >= 10 && rendetlenseg <= 30)
                 {
                     valasz= jatekok[random.Next(3)] ;
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg} ");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és most ekkora a rendetlenségszintje: {rendetlenseg} ");
                 }
                 else if (rendetlenseg >= 31 && rendetlenseg <= 60)
                 {
                     valasz = jatekok[random.Next(5)];
-                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg}");
+                    Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és most ekkora a rendetlenségszintje: {rendetlenseg}");
                 }
             }
 
@@ -195,12 +196,40 @@ namespace OsztalyokGyakorlas
                 if (rendetlenseg == 0) Alvas();
 
                 valasz = jatekok[random.Next(3)];
-                Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {rendetlenseg} ");
+                Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és most ekkora a rendetlenségszintje: {rendetlenseg} ");
             }
 
 			//Végre rájöttem hogy akartam :')
+			//valamint az az elképzelés hogy a listában egyre durvább tevékenységek vannak, és minél fiatalabb annál több ereje van ezeket megcsinálni,
+			//valamint az öreg macska már tudja mikor romlott az étel, azért nem tettem bele
 			
 		}
+
+		public void Cicaszin()
+		{
+            Console.WriteLine("Milyen színű a cicád?: fekete/szürke/fehér/narancs/többszínű/barna");
+			string szine = Console.ReadLine().Trim().ToLower();
+			if (szine == "fekete")
+			{
+                Console.WriteLine("Elég átlagos szín, szerencsére max csak megijeszt a sötétben néha ");
+			}
+            else if (szine == "fehér")
+            {
+                Console.WriteLine(" Jó sokszor fürdetheted meg ezt a cicát ");
+            }
+            else if (szine == "szürke")
+            {
+                Console.WriteLine("Szerencsére a szürkén nem látszig meg annyira a kosz, valamint kevésszer látni ilyen cicát ");
+            }
+            else if (szine == "narancs")
+            {
+                Console.WriteLine($"Hát, nem irigyellek, lefogadom hogy a cicád fiú, valamint ez a rendetlenségi szintjét is rögtön növeli 20-al, így ennyi lesz: {rendetlensegSzint+20}");
+            }
+            else if (szine == "többszínű" || szine == "barna")
+            {
+                Console.WriteLine("Na, hát neked olyan ritka színű cicád van, hogy az csak na");
+            }
+        }
 
 		
 
@@ -226,9 +255,8 @@ namespace OsztalyokGyakorlas
 		//tostring
 		public override string? ToString()
 		{
-			return $"Cica neve: {nev}, kora: {kor}, súlya: {suly} kg, fajta: {fajta}, színe: {szin}, " +
-				$"ennyire rendetlen 1-100-ig: {rendetlensegSzint}, " +
-				$"ennyit fogyaszt: {fogyasztas}, neme: {nem}, éhes-e : {ehes}";
+			return $"Cica neve: {nev}, súlya: {suly} kg, fajta: {fajta}, általában a rendetlenségszintje:{rendetlensegSzint},  ennyit fogyaszt: {fogyasztas}, neme: {nem}, éhes-e : {ehes}";
+			//ha nem írjuk ki akkor nincs is :)
 		}
 
 
