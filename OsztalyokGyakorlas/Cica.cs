@@ -166,6 +166,8 @@ namespace OsztalyokGyakorlas
                     Console.WriteLine($"ilyen tevékenységeket csinál ilyenkor a cica: {valasz}, és ekkora a rendetlenségszintje: {szint} ");
                 }
             }
+
+
 			
 		}
 
