@@ -19,7 +19,9 @@
             Console.WriteLine();
             cica1.Jatek();
             Console.WriteLine();
-            cica1.Batman();
+            cica1.CicaFilm();
+            Console.WriteLine();
+            cica1.KintVagyBenti();
 
         }
 
